@@ -14,34 +14,25 @@ namespace ConsoleApp7
             int n = Convert.ToInt32(Console.ReadLine());
             int m = Convert.ToInt32(Console.ReadLine());
             int t = Convert.ToInt32(Console.ReadLine());
-            if (n < 24 && n >= 0)
+            if (n < 24 && n >= 0 && m < 60 && n >= 0 && t < Math.Pow(10, 9) && t >= 30)
             {
-                if (m < 60 && n >= 0)
+                int c = n + t / 60;
+                while (c >= 24)
                 {
-                    if (t < Math.Pow(10, 9) && t >= 30)
-                    {
-                        int c = n + t / 60;
-                        if (c >= 24)
-                        {
-                            c = c % 24;
-
-                        }
-                        int d = m + t % 60;
-                        if (d >= 60)
-                        {
-                            d = d - 60;
-                            c = c + 1;
-                        }
-                        if (d < 10)
-                        {
-                            Console.WriteLine($"Продукты привезут в {c}:0{d}");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Продукты привезут в {c}:{d}");
-                        }
-                    }
+                    c = c % 24;
                 }
+                int d = m + t % 60;
+                while (d >= 60)
+                {
+                    d = d - 60;
+                    c = c + 1;
+                }
+                while (d < 10)
+                {
+                    Console.WriteLine($"Время доставки {c}:0{d}");
+                    Console.ReadKey();
+                }
+                Console.WriteLine($"Время доставки {c}:{d}");
             }
             else
             {
