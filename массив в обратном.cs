@@ -10,12 +10,15 @@ namespace ConsoleApp10
     {
         static void Main(string[] args)
         {
-            int i = Convert.ToInt32(Console.ReadLine());
-            int a = 1;
-            while (a <= i)
+            int[] a = new int[5];
+            for (int i = 0; i < a.Length; i++)
             {
-                Console.WriteLine(a);
-                a *= 2; ;
+                Console.Write("Введите число: ");
+                a[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = 4; i >= 0; i--)
+            {
+                Console.WriteLine(a[i]);
             }
             Console.ReadKey();
         }
